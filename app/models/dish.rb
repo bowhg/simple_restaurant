@@ -1,4 +1,5 @@
 class Dish < ApplicationRecord
-  belongs_to :restaurant
-  belongs_to :product
+  has_many :products
+  has_many :restaurants, through: :products
+  validates :name, uniqueness: true, presence: true
 end
